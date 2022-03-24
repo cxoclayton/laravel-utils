@@ -1,0 +1,29 @@
+{
+    "name": "rccjr/utils",
+    "description": "A set of utility classes to assist with Flightschool development.",
+    "type": "library",
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "require": {
+        "php": "^7.3|^8.0"
+    },
+
+    "authors": [
+        {
+            "name": "Clayton Coleman",
+            "email": "clayton@rccjr.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "rccjr\\utils\\": "src"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "rccjr\\utils\\UtilsProvider"
+            ]
+        }
+    }
+}
