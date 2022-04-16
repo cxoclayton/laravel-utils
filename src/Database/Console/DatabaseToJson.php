@@ -5,6 +5,7 @@ namespace rccjr\utils\Database\Console;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\View;
 use rccjr\utils\Database\Column;
 
@@ -90,9 +91,14 @@ class DatabaseToJson extends Command
     {
         foreach ($this->details as $table => $tableDetails) {
             $tableStr = sprintf("<fg=white;options=bold>%s</>", $table);
-            $pKeys = collect($tableDetails->getPrimaryKeyColumns())->map(function ($i) {
-                return $i->getName();
-            })->toArray();
+            try {
+                $pKeys = collect($tableDetails->getPrimaryKeyColumns())->map(function ($i) {
+                    return $i->getName();
+                })->toArray();
+            } catch(\Exception $e) {
+                Log::alert('Error getting primary keys.', ['table' => $tableDetails]);
+                $pKeys = [];
+            }
 
             $this->line($tableStr);
             $headers = [
