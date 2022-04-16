@@ -47,7 +47,7 @@ class DatabaseToTurtle extends Command
     {
         $namespace = $this->formatNamespace($this->argument('namespace') );
         $this->info('Namespace:'.$namespace);
-        $this->info('Databse:'.$this->databaseName);
+        $this->info('Database:'.$this->databaseName);
         $schemaFactory = new DatabaseSchemaFactory($this->db);
         $this->line(json_encode($schemaFactory, JSON_PRETTY_PRINT));
         return 0;
