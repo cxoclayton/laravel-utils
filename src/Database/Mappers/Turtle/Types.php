@@ -1,6 +1,6 @@
 <?php
 
-namespace rccjr\utils\Database\Turtle;
+namespace rccjr\utils\Database\Mappers\Turtle;
 
 use Carbon\Carbon;
 
