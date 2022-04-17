@@ -11,7 +11,7 @@ trait SupportsSchema
         return $this->getConn->getDoctrineSchemaManager();
     }
 
-    protected function getSchemaTable() : Table {
+    public function getSchemaTable() : Table {
         return new Table($this->getTable(), $this->getSchemaManager());
     }
 }
