@@ -8,7 +8,7 @@ use rccjr\utils\Database\Table;
 trait SupportsSchema
 {
     protected function getSchemaManager() {
-        return $this->getConn->getDoctrineSchemaManager();
+        return $this->getConnection()->getDoctrineSchemaManager();
     }
 
     public function getSchemaTable() : Table {
