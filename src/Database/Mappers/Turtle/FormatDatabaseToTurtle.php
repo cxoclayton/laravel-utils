@@ -1,8 +1,6 @@
 <?php
 
-namespace rccjr\utils\Turtle;
-
-use rccjr\utils\Database\Factories\DatabaseSchemaFactory;
+namespace rccjr\utils\Database\Mappers\Turtle;
 
 class FormatDatabaseToTurtle
 {

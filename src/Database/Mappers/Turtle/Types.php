@@ -1,8 +1,9 @@
 <?php
 
-namespace rccjr\utils\Turtle;
+namespace rccjr\utils\Database\Turtle;
 
 use Carbon\Carbon;
+
 class Types
 {
     # 0 => "integer",1 => "string",10 => "text",13 => "datetime",50 => "date",64 => "decimal",66 => "boolean",

@@ -6,11 +6,37 @@ use rccjr\utils\Database\Column;
 
 class Table
 {
-    public $name;
-    public $pKeys;
-    public $relationships;
+    protected $name;
+    protected $pKeys;
+    protected $relationships;
+    protected $db;
+    protected $columns;
 
-    private $db;
+    /**
+     * @return string
+     */
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+    /**
+     * @return \Illuminate\Support\Collection
+     */
+    public function getPrivateKeys(): \Illuminate\Support\Collection
+    {
+        return $this->pKeys;
+    }
+
+
+    /**
+     * @return \Illuminate\Support\Collection
+     */
+    public function getColumns(): \Illuminate\Support\Collection
+    {
+        return $this->columns;
+    }
+
 
     public function __construct(string $name, $conn)
     {

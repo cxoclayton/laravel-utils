@@ -8,8 +8,9 @@ use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Log;
 use rccjr\utils\Database\Console\DatabaseToJson;
-use rccjr\utils\Database\Console\PrettyRoutes;
 use rccjr\utils\Database\Console\DatabaseToTurtle;
+use rccjr\utils\Console\PrettyRoutes;
+
 
 class UtilsProvider extends ServiceProvider
 {

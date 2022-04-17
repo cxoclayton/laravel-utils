@@ -23,6 +23,7 @@ class DatabaseSchemaFactory implements \JsonSerializable
         $this->details = collect();
         $this->db = $connection;
         $this->tableNames = collect($this->db->listTableNames());
+
       /*
         $this->columnFields = [
             "name",

@@ -1,7 +1,7 @@
 <?php
 
 
-namespace rccjr\utils\Database\Console;
+namespace rccjr\utils\Console;
 
 use Illuminate\Console\Command;
 use Illuminate\Routing\Route;

@@ -1,6 +1,6 @@
 <?php
 
-namespace rccjr\utils\Turtle;
+namespace rccjr\utils\Database\Mappers\Turtle;
 
 class FieldToTurtle implements \JsonSerializable,\Stringable
 {

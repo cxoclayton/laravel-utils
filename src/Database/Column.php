@@ -7,6 +7,7 @@ use Log;
 
 class Column
 {
+
     protected $details;
     protected $primaryKeys;
     protected $foreignKeys;

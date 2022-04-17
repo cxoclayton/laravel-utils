@@ -10,5 +10,4 @@ interface MapperInterface
     public function formatDateTime(Carbon $date);
     public function formatDate(Carbon $date);
     public function formatBoolean(bool $value);
-
 }

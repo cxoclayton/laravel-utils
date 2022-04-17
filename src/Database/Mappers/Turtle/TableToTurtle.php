@@ -1,7 +1,9 @@
 <?php
 
-namespace rccjr\utils\Turtle;
+namespace rccjr\utils\Database\Mappers\Turtle;
+
 use Illuminate\Support\Str;
+
 class TableToTurtle implements \JsonSerializable, \Stringable
 {
     protected $iri;

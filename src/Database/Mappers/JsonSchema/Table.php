@@ -1,6 +1,6 @@
 <?php
 
-namespace rccjr\utils\Mappers\JsonSchema;
+namespace rccjr\utils\Database\Mappers\JsonSchema;
 
 use Carbon\CarbonInterface as Carbon;
 use rccjr\utils\Contracts\MapperInterface;
