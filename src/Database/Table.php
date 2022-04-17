@@ -38,6 +38,10 @@ class Table
     }
 
 
+    /**
+     * @param  string  $name
+     * @param $conn
+     */
     public function __construct(string $name, $conn)
     {
         $this->name = $name;
