@@ -122,6 +122,10 @@ class DatabaseToJson extends Command
 
     }
 
+    protected function buildJsonSchema()
+    {
+
+    }
 
     protected function collectDetailsForTables($tables) {
         $tables->each(function ($table) {

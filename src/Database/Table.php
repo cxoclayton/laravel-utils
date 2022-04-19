@@ -2,6 +2,7 @@
 
 namespace rccjr\utils\Database;
 
+use Illuminate\Support\Collection;
 use rccjr\utils\Database\Column;
 
 class Table
@@ -13,6 +14,7 @@ class Table
     protected $columns;
 
     /**
+     * Returns the table name.
      * @return string
      */
     public function getName(): string
@@ -21,6 +23,7 @@ class Table
     }
 
     /**
+     * Returns the list of private keys
      * @return \Illuminate\Support\Collection
      */
     public function getPrivateKeys(): \Illuminate\Support\Collection
@@ -30,7 +33,9 @@ class Table
 
 
     /**
+     * Returns a Collection of Columns;
      * @return \Illuminate\Support\Collection
+     * @see \rccjr\utils\Database\Column
      */
     public function getColumns(): \Illuminate\Support\Collection
     {
@@ -40,7 +45,7 @@ class Table
 
     /**
      * @param  string  $name
-     * @param $conn
+     * @param $conn : The connection.
      */
     public function __construct(string $name, $conn)
     {
@@ -54,7 +59,11 @@ class Table
 
     }
 
-    public function listSchemaColumns() {
+    /**
+     * Returns a collection of
+     * @return Collection
+     */
+    public function listSchemaColumns() : Collection {
         return $this->columns;
     }
     public function getDetails()

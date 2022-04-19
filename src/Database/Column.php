@@ -44,6 +44,19 @@ class Column
         ];
     }
 
+    public function getName() {
+        return $this->details->getName();
+    }
+
+    public function getType() {
+      return   $this->details->getType()->getName();
+    }
+
+    public function isRequired() {
+        return ($this->details->getNotNull() || $this->isForeignKey() || $this->details->getAutoincrement() );
+    }
+
+
     protected function getNameWithIdentifier()
     {
         return ($this->isPrimaryKey() ? sprintf('<fg=white;options=bold>%s</>', '*') :'').$this->details->getName();
