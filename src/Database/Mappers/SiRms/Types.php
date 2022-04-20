@@ -15,9 +15,14 @@ class Types
     const DB_DECIMAL = "NUMBER";
     const DB_BOOLEAN = "BOOLEAN";
 
+    const INTEGER = "NUMBER";
+    const STRING = "STRING";
+    const NUMBER = "NUMBER";
+
     static function get_type($type)
     {
-        return constant('self::'.strtoupper($type));
+        $n = constant('self::'.strtoupper($type));
+
     }
 
     static function format($type, $value)

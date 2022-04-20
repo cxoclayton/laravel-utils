@@ -46,6 +46,10 @@ class JsonSchemaWriter implements \JsonSerializable
         }
     }
 
+    public function addCdm(Collection $defs, array $context) {
+        $this->addDefs($defs);
+        $this->addSchemaFromArray($context );
+    }
     public function addDefs(Collection $defs) {
         $defs->each(function ($schema, $name) {
             #echo "$name \n";
