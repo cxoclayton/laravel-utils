@@ -39,7 +39,7 @@ class Types
     static function format_date($value)
     {
         try {
-            return (new Carbon($value))->toIso8601ZuluString();
+            return self::wrapQuotes( (new Carbon($value))->format('Y-m-d') );
         } catch (\Exception $e) {
             throw $e;
         }
@@ -47,7 +47,7 @@ class Types
 
     static function format_string($value)
     {
-        return (string)$value;
+        return self::wrapQuotes( (string)$value );
     }
 
     static function format_text($value)
@@ -58,7 +58,7 @@ class Types
     static function format_datetime($value)
     {
         try {
-            return (new Carbon($value))->toIso8601ZuluString();
+            return self::wrapQuotes( (new Carbon($value))->format('Y-m-d') );
         } catch (\Exception $e) {
             throw $e;
         }
@@ -74,5 +74,7 @@ class Types
         return $value ? true : false;
     }
 
-
+    public static function wrapQuotes(string $value, $quote = '"') {
+        return '"'.$value.'"';
+    }
 }

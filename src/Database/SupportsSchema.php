@@ -14,4 +14,8 @@ trait SupportsSchema
     public function getSchemaTable() : Table {
         return new Table($this->getTable(), $this->getSchemaManager());
     }
+
+    public static function tableSchema() {
+        return (new static)->getSchemaTable();
+    }
 }

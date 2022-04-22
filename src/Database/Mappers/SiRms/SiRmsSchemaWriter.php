@@ -4,7 +4,7 @@ namespace rccjr\utils\Database\Mappers\SiRms;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 
-class SiRmsWriter
+class SiRmsSchemaWriter
 {
 
     protected $properties;

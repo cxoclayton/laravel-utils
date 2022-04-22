@@ -6,6 +6,7 @@ namespace rccjr\utils\Database\Factories;
 
 use Illuminate\Support\Facades\DB;
 use rccjr\utils\Database\Table;
+use Illuminate\Database\ConnectionInterface;
 
 class DatabaseSchemaFactory implements \JsonSerializable
 {
@@ -16,12 +17,31 @@ class DatabaseSchemaFactory implements \JsonSerializable
     protected $primaryKeys;
     protected $db;
 
-    public function __construct($connection)
+    /**
+     * @param  ConnectionInterface|null  $connection
+     * @return static
+     */
+    public static function create(ConnectionInterface $connection = null)
     {
+        return new static($connection);
+    }
+
+    /**
+     * @param  ConnectionInterface|null  $connection
+     * @throws \Doctrine\DBAL\Exception
+     */
+    public function __construct(ConnectionInterface $connection = null)
+    {
+        if ($connection != null) {
+            $this->db = $connection->getDoctrineSchemaManager();
+        } else {
+            $this->db = DB::connection()->getDoctrineSchemaManager();
+        }
+
         $this->primaryKeys = collect();
         $this->databaseName = DB::connection()->getDatabaseName();
         $this->details = collect();
-        $this->db = $connection;
+
         $this->tableNames = collect($this->db->listTableNames());
 
       /*
@@ -44,9 +64,16 @@ class DatabaseSchemaFactory implements \JsonSerializable
 
     }
 
+    /**
+     * @return mixed
+     */
     public function JsonSerialize() : mixed {
         return $this->toArray();
     }
+
+    /**
+     * @return array
+     */
     public function toArray() {
         return [
             'config' => [
@@ -57,11 +84,19 @@ class DatabaseSchemaFactory implements \JsonSerializable
             })->toArray()
         ];
     }
+
+    /**
+     * @return \Illuminate\Support\Collection
+     */
     public function listSchemaDetails()
     {
         return $this->details;
     }
 
+    /**
+     * @return void
+     * @throws \Doctrine\DBAL\Exception
+     */
     protected function collectDetailsForTables() {
         $this->tableNames->each(function ($table) {
             if ($this->db->tablesExist($table)) {
@@ -73,7 +108,12 @@ class DatabaseSchemaFactory implements \JsonSerializable
 
     }
 
-    public function getTableDetails($table)
+    /**
+     * @param $table
+     * @return Table
+     * @throws \Doctrine\DBAL\Exception
+     */
+    public function getTableDetails(string $table)
     {
         if ($this->db->tablesExist($table)) {
             return new Table($table, $this->db);
