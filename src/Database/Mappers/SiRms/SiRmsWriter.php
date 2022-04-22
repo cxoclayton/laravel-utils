@@ -91,7 +91,7 @@ class SiRmsWriter
                                     $line .= 'DATATYPE UNKNOWN';
                                 }
                             }
-                            $ls->push($line);
+                            $ls->push($line." DISPLAY");
                         }
 
                         $ls->push('END_ITEMTYPE');

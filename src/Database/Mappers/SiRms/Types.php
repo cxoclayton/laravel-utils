@@ -22,7 +22,7 @@ class Types
     static function get_type($type)
     {
         $n = constant('self::'.strtoupper($type));
-
+        return $n;
     }
 
     static function format($type, $value)
