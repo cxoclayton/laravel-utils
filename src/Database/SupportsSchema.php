@@ -21,7 +21,7 @@ trait SupportsSchema
 
     public function arrayFilterByTable(array $attributes)
     {
-        $acceptableKeys = $this->getSchemaTable()->getColumns()->toArray();
+        $acceptableKeys = array_keys($this->getSchemaTable()->getColumns()->toArray());
         return filterArrayByKeys($attributes, $acceptableKeys);
     }
 }
