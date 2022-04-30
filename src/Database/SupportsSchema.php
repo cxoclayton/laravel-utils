@@ -18,4 +18,10 @@ trait SupportsSchema
     public static function tableSchema() {
         return (new static)->getSchemaTable();
     }
+
+    public function arrayFilterByTable(array $attributes)
+    {
+        $acceptableKeys = $this->getSchemaTable()->getColumns()->toArray();
+        return filterArrayByKeys($attributes, $acceptableKeys);
+    }
 }
