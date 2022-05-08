@@ -38,13 +38,14 @@ class DatabaseToTurtle extends Command
     public function __construct()
     {
         parent::__construct();
-        $this->db = DB::connection()->getDoctrineSchemaManager();
-        $this->databaseName = DB::connection()->getDatabaseName();
+
+
     }
-
-
     public function handle()
     {
+        $this->db = DB::connection()->getDoctrineSchemaManager();
+        $this->databaseName = DB::connection()->getDatabaseName();
+
         $namespace = $this->formatNamespace($this->argument('namespace') );
         $this->info('Namespace:'.$namespace);
         $this->info('Database:'.$this->databaseName);
