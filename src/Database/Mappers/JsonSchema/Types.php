@@ -15,8 +15,8 @@ class Types
     const DB_DATE = '#/$defs/date-string';
     const DB_DECIMAL = "number";
     const DB_BOOLEAN = "boolean";
-    const DB_DB_BIGINT = "integer";
-    
+    const DB_BIGINT = "integer";
+
     static function get_type($type)
     {
         return constant('self::'.strtoupper($type));
