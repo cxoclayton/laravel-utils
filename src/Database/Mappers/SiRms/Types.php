@@ -14,6 +14,7 @@ class Types
     const DB_DATE = 'DATE';
     const DB_DECIMAL = "NUMBER";
     const DB_BOOLEAN = "BOOLEAN";
+    const DB_BIGINT = 'INTEGER';
 
     const INTEGER = "NUMBER";
     const STRING = "STRING";
