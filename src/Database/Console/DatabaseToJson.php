@@ -84,6 +84,10 @@ class DatabaseToJson extends Command
             $this->displayInlineDetails();
         }
 
+        if ($this->option('output-format') === 'json') {
+            $this->buildJsonSchema();
+        }
+
 
         return 0;
     }
@@ -126,7 +130,7 @@ class DatabaseToJson extends Command
 
     protected function buildJsonSchema()
     {
-        echo json_encode($this->details);
+        $this->line(json_encode($this->details) );
     }
 
     protected function collectDetailsForTables($tables) {
