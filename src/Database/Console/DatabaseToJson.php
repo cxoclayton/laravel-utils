@@ -19,6 +19,7 @@ class DatabaseToJson extends Command
      */
     protected $signature =
         'rccjr:db
+    {--c|connection=default : The name of the connection to use."}
     {--t|table=* : The list of tables you want to view.}
     {--f|output-format= : Choose the output format (json, uml), default is standard out. }
     ';
@@ -48,6 +49,7 @@ class DatabaseToJson extends Command
 
     public function preSetup()
     {
+
         $this->databaseName = DB::connection()->getDatabaseName();
         $this->details = collect();
         $this->db = DB::connection()->getDoctrineSchemaManager();
@@ -124,7 +126,7 @@ class DatabaseToJson extends Command
 
     protected function buildJsonSchema()
     {
-
+        echo json_encode($this->details);
     }
 
     protected function collectDetailsForTables($tables) {
